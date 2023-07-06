@@ -6,3 +6,24 @@
 *Language: C++
 *File: hashtable.cpp
 *******************/
+
+#include "hashtable.h"
+
+HashTable::HashTable() 
+{
+    // Initialize the hash table
+     table = new LinkedList[HASHTABLESIZE];
+}
+
+HashTable::~HashTable() 
+{
+
+  // Clear all the linked lists in the hash table
+    for (int i = 0; i < HASHTABLESIZE; i++)
+    {
+        table[i].clearList();
+    }
+
+    delete[] table;
+}
+
