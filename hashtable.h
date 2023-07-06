@@ -28,7 +28,10 @@ public:
 
 
 
-
+private:
+    //private methods
+    LinkedList* table;
+    int hash(int);
 
 };
 
