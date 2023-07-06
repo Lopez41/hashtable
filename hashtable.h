@@ -6,3 +6,30 @@
 *Language: C++
 *File: hashtable.h
 *******************/
+#ifndef HASHTABLE_H
+#define HASHTABLE_H
+#include "linkedlist.h"
+#define HASHTABLESIZE 15  // The size of the hash table array
+
+class HashTable
+{
+public:
+    //constructor
+    HashTable();
+    //deconstructor
+    ~HashTable();
+     
+    //methods
+   bool insertEntry(int,string*);
+   string getData(int);
+   bool removeEntry(int);
+   int getCount();
+   void printTable();
+
+
+
+
+
+};
+
+#endif
