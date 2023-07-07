@@ -27,3 +27,20 @@ HashTable::~HashTable()
     delete[] table;
 }
 
+bool HashTable::insertEntry(int id, string* data) 
+{
+    int index = hash(id);
+    return table[index].addNode(id, data);
+}
+
+string HashTable::getData(int id) {
+    int index = hash(id);
+    Data data;
+    if (table[index].getNode(id, &data)) 
+    {
+        return data.data;
+    }
+    return "";
+}
+
+
