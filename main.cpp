@@ -9,7 +9,8 @@
 
 #include "main.h"
 
-int main() {
+int main() 
+{
     //seed the rand function
     srand(time(NULL));
 
@@ -53,18 +54,26 @@ int main() {
      */
     
     // create your hash table object here
-    
-    // show it is empty by calling getCount and printTable
-    
-    // try and put ALL the test data into the table and show what happens
+    HashTable hashTable;
 
-    // continue using and testing your table, add and remove data,
-    // do whatever it takes to full test your object and prove it
-    // is robust and can handle all use cases.
-
-    
-    
-    
-    
-    return 0;
+    // testing intial hash table
+    cout << "Initial Hash Table:" << endl;
+    cout << "Count: " << hashTable.getCount() << endl;
+    hashTable.printTable();
+    cout << endl;
+// Insert test data into the hash table
+    for (int i = 0; i < testdatasize; i++) {
+if (hashTable.insertEntry(ids[i], &strs[i])) {
+cout << "Inserted: " << ids[i] << " : " << strs[i] << endl;
+} else {
+cout << "Failed to insert: " << ids[i] << " : " << strs[i] << endl;
 }
+}
+
+
+
+return 0;
+}
+
+
+
