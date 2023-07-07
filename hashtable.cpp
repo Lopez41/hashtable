@@ -33,7 +33,8 @@ bool HashTable::insertEntry(int id, string* data)
     return table[index].addNode(id, data);
 }
 
-string HashTable::getData(int id) {
+string HashTable::getData(int id) 
+{
     int index = hash(id);
     Data data;
     if (table[index].getNode(id, &data)) 
@@ -43,4 +44,19 @@ string HashTable::getData(int id) {
     return "";
 }
 
+bool HashTable::removeEntry(int id)
+ {
+    int index = hash(id);
+    return table[index].deleteNode(id);
+}
+
+int HashTable::getCount()
+ {
+    int count = 0;
+    for (int i = 0; i < HASHTABLESIZE; i++) 
+    {
+        count += table[i].getCount();
+    }
+    return count;
+}
 
