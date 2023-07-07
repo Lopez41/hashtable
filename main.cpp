@@ -64,14 +64,15 @@ int main()
     cout << endl;
 // Insert test data into the hash table
     for (int i = 0; i < testdatasize; i++) 
+    {
+        if (hashTable.insertEntry(ids[i], &strs[i])) 
         {
-    if (hashTable.insertEntry(ids[i], &strs[i])) 
-    {
-    cout << "Inserted: " << ids[i] << " : " << strs[i] << endl;
-    } else 
-    {
-    cout << "Failed to insert: " << ids[i] << " : " << strs[i] << endl;
-    }
+            cout << "Inserted: " << ids[i] << " : " << strs[i] << endl;
+        }    
+        else 
+        {
+            cout << "Failed to insert: " << ids[i] << " : " << strs[i] << endl;
+        }
     }
     // testing final hash table 
     cout << endl;
@@ -87,7 +88,26 @@ int main()
         cout << "Data for " << ids[i] << ": " << (data.empty() ? "Not Found" : data) << endl;
     }
     cout << endl;
-   
+    //test removing data
+    cout << "Removing Entries..." << endl;
+    int removeCount = 0;
+    for (int i = 0; i < testdatasize; i++) 
+    {
+        if (hashTable.removeEntry(ids[i])) 
+        {
+            cout << "Removed: " << ids[i] << endl;
+            removeCount++;
+        }
+    }
+    // testing total removed data
+    cout << "Total Removed: " << removeCount << endl;
+    cout << "Count: " << hashTable.getCount() << endl;
+    cout << endl;
+    //testing after all data was removed 
+    cout << "Final Hash Table:" << endl;
+    hashTable.printTable();
+    cout << endl;
+
 
     return 0;
 }
