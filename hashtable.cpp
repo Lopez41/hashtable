@@ -60,3 +60,24 @@ int HashTable::getCount()
     return count;
 }
 
+void HashTable::printTable()
+{
+    for (int i = 0; i < HASHTABLESIZE; i++)
+    {
+        std::cout << "Entry " << i << ": ";
+
+        if (table[i].getCount() == 0)
+        {
+            std::cout << "EMPTY" << std::endl;
+        }
+        else
+        {
+            table[i].printList();
+        }
+    }
+}
+
+int HashTable::hash(int id)
+{
+    return id % HASHTABLESIZE;
+}
