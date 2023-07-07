@@ -42,7 +42,8 @@ int main()
      * Show test data
      */
     cout << "Showing Test Data (" << testdatasize << " entries)..." << endl;
-    for (int i = 0; i < testdatasize; i++) {
+    for (int i = 0; i < testdatasize; i++) 
+    {
         cout << ids[i] << " : " << strs[i] << endl;
     }
     cout << endl;
@@ -62,17 +63,33 @@ int main()
     hashTable.printTable();
     cout << endl;
 // Insert test data into the hash table
-    for (int i = 0; i < testdatasize; i++) {
-if (hashTable.insertEntry(ids[i], &strs[i])) {
-cout << "Inserted: " << ids[i] << " : " << strs[i] << endl;
-} else {
-cout << "Failed to insert: " << ids[i] << " : " << strs[i] << endl;
-}
-}
+    for (int i = 0; i < testdatasize; i++) 
+        {
+    if (hashTable.insertEntry(ids[i], &strs[i])) 
+    {
+    cout << "Inserted: " << ids[i] << " : " << strs[i] << endl;
+    } else 
+    {
+    cout << "Failed to insert: " << ids[i] << " : " << strs[i] << endl;
+    }
+    }
+    // testing final hash table 
+    cout << endl;
+    cout << "Final Hash Table:" << endl;
+    cout << "Count: " << hashTable.getCount() << endl;
+    hashTable.printTable();
+    cout << endl;
+    // getting data
+    cout << "Retrieving Data..." << endl;
+    for (int i = 0; i < testdatasize; i++)
+    {
+        string data = hashTable.getData(ids[i]);
+        cout << "Data for " << ids[i] << ": " << (data.empty() ? "Not Found" : data) << endl;
+    }
+    cout << endl;
+   
 
-
-
-return 0;
+    return 0;
 }
 
 
