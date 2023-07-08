@@ -37,11 +37,14 @@ string HashTable::getData(int id)
 {
     int index = hash(id);
     Data data;
+    string result = "";  // Initialize an empty string
+
     if (table[index].getNode(id, &data)) 
     {
-        return data.data;
+        result = data.data;
     }
-    return "";
+
+    return result;
 }
 
 bool HashTable::removeEntry(int id)
